@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#080808" />
+    <meta
+      name="description"
+      content="Fatemeh Salehian — performing artist and interactive media designer."
+    />
+    <title>Fatemeh Salehian — Performing Artist / Interactive Media Designer</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div class="noise" aria-hidden="true"></div>
+    <div class="cursor-orbit" aria-hidden="true"></div>
+
+    <header class="site-header" data-header>
+      <a class="wordmark" href="#top" aria-label="Fatemeh Salehian, back to top">
+        <span>FS</span>
+        <small>Portfolio / 2026</small>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#statement">Statement</a>
+        <a href="#practice">Practice</a>
+        <a href="#process">Process</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="menu-button" type="button" aria-expanded="false" aria-label="Toggle menu">
+        Menu
+      </button>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero-copy reveal">
+          <p class="eyebrow"><span>Portfolio landing</span><span>01 / Live phase</span></p>
+          <h1 id="hero-title">
+            <span>Fatemeh</span>
+            <span>Salehian</span>
+          </h1>
+          <div class="role-line" aria-label="Performing Artist and Interactive Media Designer">
+            <strong>Performing Artist</strong>
+            <i aria-hidden="true"></i>
+            <strong>Interactive Media Designer</strong>
+          </div>
+          <p class="hero-intro">
+            Designing physical, responsive spaces through computer vision, wearable sensors,
+            and real-time generative projections—where movement becomes the interface.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#statement">
+              <span>Enter the stage</span><b aria-hidden="true">↘</b>
+            </a>
+            <button class="button button-ghost" type="button" data-camera-button>
+              <span>Enable hand tracking</span><b aria-hidden="true">◎</b>
+            </button>
+          </div>
+          <p class="privacy-note" data-camera-note>
+            Optional. Camera frames stay in your browser and are not recorded.
+          </p>
+        </div>
+
+        <div class="hero-stage reveal" data-stage>
+          <div class="stage-meta stage-meta-top">
+            <span>Gesture / <b data-gesture-label>pointer scrub</b></span>
+            <span>Fold / <b data-fold-label>00</b></span>
+          </div>
+
+          <div class="portrait-wrap" data-portrait-wrap>
+            <div class="aura aura-one" aria-hidden="true"></div>
+            <div class="aura aura-two" aria-hidden="true"></div>
+
+            <canvas
+              class="portrait-sequence"
+              data-portrait-sequence
+              width="900"
+              height="974"
+              role="img"
+              aria-label="An origami portrait that gradually compresses into a crumpled paper form as the visitor moves their pointer or closes their hand."
+            ></canvas>
+
+            <svg
+              class="origami-portrait"
+              data-origami
+              viewBox="0 0 700 800"
+              role="img"
+              aria-labelledby="portrait-title portrait-desc"
+            >
+              <title id="portrait-title">An abstract folded-paper portrait</title>
+              <desc id="portrait-desc">
+                A monochrome editorial portrait assembled from paper-like polygon folds. It
+                compresses in response to pointer movement or an open hand detected by the camera.
+              </desc>
+              <defs>
+                <linearGradient id="paperA" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#f2f0e9" />
+                  <stop offset="1" stop-color="#72716d" />
+                </linearGradient>
+                <linearGradient id="paperB" x1="1" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#b6b4ae" />
+                  <stop offset="1" stop-color="#252525" />
+                </linearGradient>
+                <radialGradient id="paperC" cx="42%" cy="30%" r="80%">
+                  <stop offset="0" stop-color="#e7e5df" />
+                  <stop offset="0.52" stop-color="#8e8d89" />
+                  <stop offset="1" stop-color="#171717" />
+                </radialGradient>
+                <clipPath id="headMask">
+                  <path
+                    d="M242 111C309 49 440 52 505 120c48 50 63 136 45 203-10 39-30 72-53 103-16 21-28 46-31 72l-5 70-53 53-9 109H263l3-106-66-50 35-106c-31-38-52-85-54-134-3-79 12-166 61-223Z"
+                  />
+                </clipPath>
+                <filter id="crushFilter" x="-30%" y="-30%" width="160%" height="160%">
+                  <feTurbulence
+                    type="fractalNoise"
+                    baseFrequency="0.012 0.024"
+                    numOctaves="2"
+                    seed="19"
+                    result="noise"
+                  />
+                  <feDisplacementMap
+                    data-displacement
+                    in="SourceGraphic"
+                    in2="noise"
+                    scale="0"
+                    xChannelSelector="R"
+                    yChannelSelector="B"
+                  />
+                </filter>
+              </defs>
+
+              <g class="paper-head" data-paper-head filter="url(#crushFilter)">
+                <g clip-path="url(#headMask)">
+                  <rect x="150" y="45" width="440" height="700" fill="url(#paperC)" />
+                  <polygon class="paper-shard" data-x="-24" data-y="-18" data-r="-12" points="220,126 356,68 329,230" fill="#c8c6bf" />
+                  <polygon class="paper-shard" data-x="22" data-y="-28" data-r="14" points="356,68 494,113 420,245 329,230" fill="#363636" />
+                  <polygon class="paper-shard" data-x="34" data-y="-10" data-r="9" points="494,113 553,238 447,281 420,245" fill="#242424" />
+                  <polygon class="paper-shard" data-x="-18" data-y="-4" data-r="-7" points="220,126 329,230 257,312 178,263" fill="#9b9a95" />
+                  <polygon class="paper-shard" data-x="-14" data-y="12" data-r="-10" points="178,263 257,312 229,425 176,366" fill="#d8d6cf" />
+                  <polygon class="paper-shard" data-x="4" data-y="-8" data-r="4" points="329,230 420,245 383,340 257,312" fill="#e5e3dc" />
+                  <polygon class="paper-shard" data-x="18" data-y="2" data-r="8" points="420,245 447,281 444,385 383,340" fill="#8e8d88" />
+                  <polygon class="paper-shard" data-x="-25" data-y="18" data-r="-16" points="257,312 383,340 329,402 229,425" fill="#bbb9b3" />
+                  <polygon class="paper-shard" data-x="16" data-y="18" data-r="15" points="383,340 444,385 425,458 329,402" fill="#6e6d69" />
+                  <polygon class="paper-shard" data-x="-29" data-y="30" data-r="-18" points="229,425 329,402 300,500 204,512" fill="#85847f" />
+                  <polygon class="paper-shard" data-x="4" data-y="32" data-r="5" points="329,402 425,458 390,521 300,500" fill="#d1cfc9" />
+                  <polygon class="paper-shard" data-x="27" data-y="30" data-r="18" points="425,458 489,408 474,529 390,521" fill="#3a3a3a" />
+                  <polygon class="paper-shard" data-x="-22" data-y="42" data-r="-14" points="204,512 300,500 329,610 241,588" fill="#454545" />
+                  <polygon class="paper-shard" data-x="12" data-y="46" data-r="10" points="300,500 390,521 407,620 329,610" fill="#a8a7a2" />
+                  <polygon class="paper-shard" data-x="28" data-y="44" data-r="20" points="390,521 474,529 454,631 407,620" fill="#262626" />
+                  <polygon class="paper-shard" data-x="-12" data-y="58" data-r="-8" points="241,588 329,610 314,747 255,702" fill="#bebcb6" />
+                  <polygon class="paper-shard" data-x="18" data-y="62" data-r="13" points="329,610 454,631 409,750 314,747" fill="#5f5e5b" />
+                </g>
+
+                <g class="face-lines" aria-hidden="true">
+                  <path d="M248 300c31-23 69-24 97-4" />
+                  <path d="M382 294c28-18 60-12 78 8" />
+                  <path d="M263 323c26 13 52 10 73-4" />
+                  <path d="M390 318c22 12 44 11 61-2" />
+                  <path d="M355 310 323 419l54 18" />
+                  <path d="M291 489c38 20 77 18 112-7" />
+                  <path d="M304 511c29 16 58 14 85-4" />
+                  <path d="M239 205 503 411M191 361l279 167M248 584l177-339" opacity=".45" />
+                </g>
+
+                <g class="crumple-lines" aria-hidden="true">
+                  <path d="M302 135 364 276 491 173M201 292l143 71-115 76 175 31-116 93 145 77" />
+                  <path d="m492 263-136 91 116 75-151 36 91 98-116 81" />
+                  <path d="m239 195 209 79-196 61 210 92-219 76 176 89" />
+                </g>
+              </g>
+
+              <g class="tracking-reticle" data-reticle aria-hidden="true">
+                <circle r="13" />
+                <circle r="31" />
+                <path d="M-47 0h23M24 0h23M0-47v23M0 24v23" />
+              </g>
+            </svg>
+
+            <div class="camera-shell" aria-hidden="true">
+              <video class="camera-feed" data-video muted playsinline></video>
+              <canvas class="hand-canvas" data-hand-canvas></canvas>
+              <span data-camera-label>Camera / standby</span>
+            </div>
+
+            <div class="scrub-track" aria-hidden="true">
+              <i></i><span>Open</span><span>Compress</span>
+            </div>
+          </div>
+
+          <div class="stage-meta stage-meta-bottom">
+            <span>Scrub / squeeze / release</span>
+            <span class="signal"><i></i><b data-signal-label>interactive</b></span>
+          </div>
+        </div>
+
+        <div class="scroll-cue" aria-hidden="true"><span>Scroll</span><i></i></div>
+      </section>
+
+      <section class="statement section" id="statement" aria-labelledby="statement-title">
+        <div class="section-index reveal">02 / Artist statement &amp; manifesto</div>
+        <div class="statement-grid">
+          <h2 id="statement-title" class="display-statement reveal">
+            The stage is not a screen.
+            <em>Code is a choreographer,</em>
+            and sensors are active scene partners.
+          </h2>
+          <div class="statement-aside reveal">
+            <p class="eyebrow">Area of inquiry</p>
+            <p>
+              I explore performance systems in which bodies, sensors, and generative visuals
+              share authorship. Movement does not trigger decoration; it edits space, time, and
+              attention in real time.
+            </p>
+            <a href="#practice" class="text-link">Explore the practice <span>↓</span></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="practice section" id="practice" aria-labelledby="practice-title">
+        <div class="section-heading reveal">
+          <div>
+            <p class="section-index">03 / Current explorations</p>
+            <h2 id="practice-title">Bodies become<br />live instruments.</h2>
+          </div>
+          <p>
+            Three research directions shape the portfolio. Each is treated as a living system:
+            visual, performative, and responsive to the audience.
+          </p>
+        </div>
+
+        <div class="practice-list">
+          <article class="practice-card reveal" data-tilt-card>
+            <div class="card-number">01</div>
+            <div class="card-visual card-visual-motion" aria-hidden="true">
+              <div class="motion-body"><i></i><i></i><i></i><i></i><i></i></div>
+              <span class="scan-line"></span>
+            </div>
+            <div class="card-copy">
+              <p class="eyebrow">Computer vision / movement</p>
+              <h3>Embodied Interface</h3>
+              <p>
+                Camera-based motion analysis turns gesture, distance, and rhythm into visual and
+                sonic parameters—without asking the performer to leave the body behind.
+              </p>
+              <ul>
+                <li>Hand &amp; pose tracking</li>
+                <li>Spatial gesture scores</li>
+                <li>Real-time feedback</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="practice-card reveal" data-tilt-card>
+            <div class="card-number">02</div>
+            <div class="card-visual card-visual-stage" aria-hidden="true">
+              <div class="stage-plane plane-a"></div>
+              <div class="stage-plane plane-b"></div>
+              <div class="stage-orb"></div>
+              <span class="stage-grid"></span>
+            </div>
+            <div class="card-copy">
+              <p class="eyebrow">Generative projection / performance</p>
+              <h3>Responsive Stage</h3>
+              <p>
+                Projection is treated as stage architecture: elastic, atmospheric, and able to
+                reorganize itself around a live performer.
+              </p>
+              <ul>
+                <li>Real-time image systems</li>
+                <li>Projection scenography</li>
+                <li>Performative light</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="practice-card reveal" data-tilt-card>
+            <div class="card-number">03</div>
+            <div class="card-visual card-visual-signal" aria-hidden="true">
+              <svg viewBox="0 0 520 300">
+                <path d="M0 155h68l29-74 48 157 48-126 44 43h57l30-93 49 173 45-80h102" />
+                <path class="echo" d="M0 185h82l27-48 43 92 52-106 38 62h62l31-59 42 90 39-31h104" />
+              </svg>
+              <span class="signal-dot"></span>
+            </div>
+            <div class="card-copy">
+              <p class="eyebrow">Wearable input / live data</p>
+              <h3>Intimate Signal</h3>
+              <p>
+                Breath, orientation, and physiological data become subtle co-performers—felt as
+                tension and texture rather than displayed as statistics.
+              </p>
+              <ul>
+                <li>Wearable sensors</li>
+                <li>Data dramaturgy</li>
+                <li>Somatic interaction</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="process section" id="process" aria-labelledby="process-title">
+        <div class="process-title-wrap reveal">
+          <p class="section-index">04 / Working method</p>
+          <h2 id="process-title">A choreography<br />for making.</h2>
+        </div>
+
+        <ol class="process-steps">
+          <li class="reveal">
+            <span>01</span>
+            <div><h3>Listen to the body</h3><p>Begin with a physical rule, score, or sensation—not a visual effect.</p></div>
+          </li>
+          <li class="reveal">
+            <span>02</span>
+            <div><h3>Prototype the relation</h3><p>Build small live tests that expose the conversation between gesture and system.</p></div>
+          </li>
+          <li class="reveal">
+            <span>03</span>
+            <div><h3>Compose the feedback</h3><p>Tune latency, scale, and ambiguity until the response feels performable.</p></div>
+          </li>
+          <li class="reveal">
+            <span>04</span>
+            <div><h3>Return it to the stage</h3><p>Let rehearsal—not the interface specification—decide what remains.</p></div>
+          </li>
+        </ol>
+
+        <div class="tool-marquee reveal" aria-label="Tools and methods">
+          <div>
+            <span>MediaPipe</span><i>◆</i><span>TouchDesigner</span><i>◆</i><span>Computer Vision</span><i>◆</i>
+            <span>Wearable Sensors</span><i>◆</i><span>Generative Projection</span><i>◆</i><span>Live Performance</span><i>◆</i>
+          </div>
+          <div aria-hidden="true">
+            <span>MediaPipe</span><i>◆</i><span>TouchDesigner</span><i>◆</i><span>Computer Vision</span><i>◆</i>
+            <span>Wearable Sensors</span><i>◆</i><span>Generative Projection</span><i>◆</i><span>Live Performance</span><i>◆</i>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact section" id="contact" aria-labelledby="contact-title">
+        <p class="section-index reveal">05 / Contact</p>
+        <div class="contact-grid">
+          <div class="reveal">
+            <h2 id="contact-title">Let’s build a stage<br />that can listen.</h2>
+            <p>
+              Available for performance collaborations, interactive scenography, movement-led
+              research, and live visual systems.
+            </p>
+          </div>
+          <div class="contact-actions reveal">
+            <button class="button button-primary" type="button" disabled title="Add Fatemeh’s preferred public contact details">
+              <span>Contact details to be added</span><b aria-hidden="true">＋</b>
+            </button>
+            <button class="button button-ghost" type="button" data-copy-link>
+              <span>Copy portfolio link</span><b aria-hidden="true">⧉</b>
+            </button>
+          </div>
+        </div>
+        <footer>
+          <span>Fatemeh Salehian</span>
+          <span>Performing Artist × Interactive Media Designer</span>
+          <a href="#top">Back to top ↑</a>
+        </footer>
+      </section>
+    </main>
+
+    <div class="toast" role="status" aria-live="polite" data-toast></div>
+  </body>
+</html>
